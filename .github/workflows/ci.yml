@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The plugin itself has zero dependencies. puppeteer-core is installed
+      # only to drive the browser half of the synthetic suite; the runner
+      # already ships Google Chrome, which scripts/verify.mjs looks for.
+      - name: Install puppeteer-core
+        run: npm install --no-save puppeteer-core
+
+      - name: Syntax check + synthetic suite
+        run: npm test

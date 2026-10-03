@@ -1,0 +1,11 @@
+# Bundle patch for dsh-icpc-boot.
+#
+# This is what makes the package a PROFILE LAYER rather than an inert
+# dependency: the row below mounts the plugin, and the package's `dsh.client`
+# block (package.json) is what gets the browser half served and loaded.
+#
+# A package that declares only `dsh.client` is not installable — both blocks are
+# required.
+- insert:
+    - id: icpc-boot
+      name: dsh-icpc-boot

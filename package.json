@@ -1,0 +1,95 @@
+{
+  "name": "dsh-icpc-boot",
+  "version": "0.1.0",
+  "description": "ICPC 开屏动画：为 DeepSeek Harness Web 界面加入 ICPC 标识开场影片（标准片头 / 霓虹片头 / 关闭）。ICPC logo intro splash for the DeepSeek Harness web client.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "dshhub": {
+    "schemaVersion": 1,
+    "displayName": "dsh-icpc-boot",
+    "summary": "启动时播放 ICPC 标识开场影片，可在设置里切换标准片头 / 霓虹片头或关闭。",
+    "categories": [
+      "Web UI",
+      "外观"
+    ],
+    "surfaces": [
+      "host",
+      "web"
+    ],
+    "capabilities": {
+      "provides": [
+        "ui:boot-splash"
+      ]
+    },
+    "compatibility": {
+      "dsh": ">=0.2.0-rc.2",
+      "node": ">=20"
+    }
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "CREDITS.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "client-plugin",
+    "cordis",
+    "icpc",
+    "boot",
+    "splash",
+    "intro",
+    "web-ui"
+  ],
+  "license": "MIT",
+  "author": "ttbr5145 (https://github.com/ttbr5145)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttbr5145/dsh-icpc-boot.git"
+  },
+  "homepage": "https://github.com/ttbr5145/dsh-icpc-boot#readme",
+  "bugs": {
+    "url": "https://github.com/ttbr5145/dsh-icpc-boot/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js",
+    "verify": "node scripts/verify.mjs",
+    "test": "npm run check && npm run verify",
+    "e2e": "node scripts/e2e.mjs",
+    "test:all": "npm run test && npm run e2e",
+    "prepublishOnly": "npm test"
+  }
+}

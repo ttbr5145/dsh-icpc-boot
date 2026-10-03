@@ -1,0 +1,12 @@
+{
+  "id": "dsh-icpc-boot",
+  "name": "ICPC 开屏动画",
+  "nameEn": "ICPC Boot Splash",
+  "author": "ttbr5145",
+  "description": "给 DSH 的 Web 界面加一段 ICPC 标识开场影片：标准片头 5 秒、霓虹片头 6 秒，也可随时关掉；点画面或按 Esc 跳过。首帧由宿主半边在文档解析阶段注入，DSH 自带的 Loading 卡片不会露脸；两个 mp4 原样提供，不转码不抽帧，素材路由真实现 Range。",
+  "descriptionEn": "A full-screen ICPC ident intro for the DSH web client: a 5-second intro cut and a 6-second neon cut, or off; skippable by click or Esc. The host half injects the opening frame while the document is still parsing, so DSH's built-in loading card never shows. Both mp4 files are served untouched — no transcode, no frame extraction — over routes with real Range support.",
+  "repo": "https://github.com/ttbr5145/dsh-icpc-boot",
+  "npm": "dsh-icpc-boot",
+  "category": "ui",
+  "subcategory": "boot"
+}
